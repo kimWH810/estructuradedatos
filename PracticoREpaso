@@ -1,0 +1,155 @@
+1.	Dado un número entero N, hacer un programa para sumar los dígitos de cada uno de ellos.   Ej. Si N= 45634,  la suma es 4+5+6+3+4=22
+// SumaDeDigitos.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+
+void main ()
+{int N,c,r,s=0;
+	do
+	{cout <<"Ingrese un numero mayor a tres digitos: "<< endl;
+	 cin >>N;
+	}while(N<100);
+ while(N>0)
+ {r=N%10;
+  s=s+r;
+  c=N/10;
+  N=c;
+ }
+cout<<"La suma es: "<< s;
+_getch();
+}
+
+
+
+
+
+
+
+2.	Dado un número entero N, hacer un programa para invertir el número en otra variable Z.  Ej. Si N= 456721, el número invertido es Z=127654.
+// NumInv.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void main()
+{int N,Z=0,r,c;
+ do
+ {cout <<"Ingrese un numero con mas de 3 digitos: " << endl;
+  cin >>N;
+ }while(N<100);
+while(N>0)
+{r=N%10;
+ Z=Z*10+r;
+ c=N/10;
+ N=c;
+}
+cout <<"El numero invertido es:" <<endl << Z;
+_getch();
+}
+
+3.	Hacer un programa para contar los dígitos pares que tiene un número N.  Ej. Si N= 5678312,  este tiene 3 dígitos pares (6, 8, 2).
+// DigPAr.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{int N,par=0,r,c;
+ cout <<"Ingrese un numero: " << endl;
+  cin >>N;
+while(N>0)
+{r=N%10;
+ if(r%2==0)
+ {par = par + 1;
+ }
+ c=N/10;
+ N=c;
+}
+cout <<"Tiene "<< par << " numeros pares"<<endl;
+_getch();
+}
+
+4.	Dado un número entero, comprobar si el número es capicúa, es decir, si leídos de la izquierda a la derecha y viceversa dan el mismo valor o número.  Ej. 34543
+// capicua.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+void main()
+{int N,Z=1,c,r,i;
+ cout <<"Ingrese un numero: "<< endl;
+ cin >>N;
+ i=N;
+ while(i>0)
+ {r=i%10;
+  Z=Z*10+r;
+  i=i/10;
+ }
+ if(Z==N)
+	 cout<<"Es capicua"<< endl;
+ else
+	 cout <<"No es capicua"<<endl;
+ _getch();
+}
+
+
+5.	Hallar el complemento a 9 de un número entero N.  Ej. 4567, su complemento es 5432.
+// capicua.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+void main()
+{int N,Z=1,c,r,i;
+ cout <<"Ingrese un numero: "<< endl;
+ cin >>N;
+ i=N;
+ while(i>0)
+ {r=i%10;
+  Z=Z*10+r;
+  i=i/10;
+ }
+ if(Z==N)
+	 cout<<"Es capicua"<< endl;
+ else
+	 cout <<"No es capicua"<<endl;
+ _getch();
+}
+6.	Dado un número entero en base 8, comprobar si alguno de sus dígitos no corresponden a su base.  Ej. El número 2762823, el dígito 8 no corresponde a la base 8.
+// BaseOch.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+void main()
+{int N,r,c;
+ cout<<"Ingrese un numero: "<<endl;
+ cin>>N;
+ while(N>0)
+ {r=N%10;
+  if(r>7)
+	  cout<<"El numero "<<r<<" no pertenece a su base."<<endl;
+  c=N/10;
+  N=c;
+ }
+_getch();
+}
+
