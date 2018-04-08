@@ -1,0 +1,50 @@
+#pragma once
+class Triangulos
+{	private:
+	float base;
+	float altura;
+	float area;
+
+	public:
+	Triangulos(void);
+	~Triangulos(void);
+	float calcular_area(float b,float h);
+};
+//Creando el programa principal
+// Triangulos.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Triangulos.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+
+void main ()
+{Triangulos triangulo1;
+ float a,b;
+ cout <<"Ingrese su base: "<<endl;
+ cin>>a;
+ cout<<"Ingrese su altura: "<<endl;
+ cin>>b;
+ cout<<"La suma es: "<<triangulo1.calcular_area(a,b);
+ getch();
+	
+}
+
+
+
+Triangulos::Triiangulos(void)
+{
+}
+
+
+Triangulos::~Triiangulos(void)
+{
+}
+
+float Triangulos::calcular_area(float b,float h)
+{area=(b*h)/2;
+ return area;
+}
