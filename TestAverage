@@ -1,0 +1,82 @@
+#pragma once
+class estudiante
+{	private:
+	int P1;
+	int P2;
+	int P3;
+	int P4;
+public:
+	estudiante(void);
+	~estudiante(void);
+	void notas(int p1,int p2, int p3,int p4);
+	void diferencia(int p1,int p2, int p3,int p4);
+};
+//archivo cpp
+#include "StdAfx.h"
+#include "estudiante.h"
+#include <iostream>
+using namespace std;
+
+
+estudiante::estudiante(void)
+{
+}
+
+
+estudiante::~estudiante(void)
+{
+}
+void estudiante::notas(int p1,int p2, int p3,int p4)
+{	float notas;
+	float promedio;
+	notas= (p1+p2)*0.4+(p3*0.2)+(p4*0.4);
+	promedio=notas/4;
+	cout<<"El promedio es: "<<promedio;
+	cout<<endl;
+}
+void estudiante::diferencia (int p1,int p2, int p3,int p4)
+{	float notas; 
+	float promedio,diferencia;
+	notas= (p1+p2)*0.4+(p3*0.2)+(p4*0.4);
+	promedio = notas/4;
+	diferencia= notas - promedio;
+	cout<<"La diferencia entre nota y promedio es de: "<<diferencia;
+}
+//main
+// Estudiantes.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "estudiante.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+
+void main ()
+{	estudiante prom1,dif1;
+	float parcial1,parcial2,practico,final;
+	do
+	{cout <<"Ingrese la nota de su primer parcial: ";
+	 cin>>parcial1;
+	}while(parcial1<0 || parcial1>100);
+	cout<<endl;
+	do
+	{cout <<"Ingrese la nota de su segundo parcial: ";
+	 cin>>parcial2;
+	}while(parcial2<0 || parcial2>100);
+	cout<<endl;
+	do
+	{cout <<"Ingrese la nota practica: ";
+	 cin>>practico;
+	}while(practico<0 || practico>100);
+	cout<<endl;
+	do
+	{cout <<"Ingrese la nota de su examen final: ";
+	 cin>>final;
+	 cout<<endl;
+	}while(final<0 || final>100);
+	prom1.notas(parcial1,parcial2,practico,final);
+	dif1.diferencia(parcial1,parcial2,practico,final);
+	getch();
+}
