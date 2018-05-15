@@ -1,0 +1,186 @@
+ // 1ER EJERCICIO
+ 
+ 
+#include "stdafx.h"
+#include <conio.h>
+#include <iostream>
+#include <string>
+#define max 100
+using namespace std;
+
+struct vec
+{
+	float codigo;
+	string descripcion;
+};
+
+void cargarvector (int M, vec x[]); // los vectores funcionan con o sin max.
+void cargarmatriz(int M, float mat[max][max]);   // las matrices necesitan max en declaracion.
+
+int main()
+{
+	int M;
+	float matriz[max][max];
+	vec ventas[max];
+	do
+	{
+	cout<<"Cantidad de tipos de Productos: ";
+	cin>>M;
+	}while ((M<=0) || (M>max));
+
+	cargarvector(M, ventas); // cuando llamo en main, no utilizo corchetes, por que envio todo el vector.
+	cargarmatriz(M, matriz);
+	getch();
+	return 0;
+}
+
+void cargarvector (int M, vec x[]) // descubri que para cargar el vector recibido, va a tener el nombre del prototipo y no su nombre en main.
+{
+	for (int i=0;i<M;i++)
+	{
+		cout<<"Ingrese el Codigo del producto ["<<i<<"]: ";
+		cin>>x[i].codigo;
+		cout<<"Ingrese Descripcion del producto ["<<i<<"]: ";
+		cin.ignore();
+		getline(cin,x[i].descripcion);
+	}
+}
+void cargarmatriz (int M, float matriz[max][max])
+{
+	for (int i=0;i<M;i++)
+		for (int j=0;j<7;j++)
+	{
+		cout<<"Ingrese  ["<<i<<"]: ";
+		cin>>matriz[i][j];
+		cout<<"Ingrese Descripcion del producto ["<<i<<"]: ";
+		cin>>ventas[i].descripcion;
+	}
+}
+
+
+ 
+ 
+ 
+ 
+ // 2DO EJERCICIO
+
+#pragma once
+const int max = 20;
+class pilas
+{private:
+int PILA[max];
+int tope;
+public:
+pilas();
+~pilas();
+
+bool pila_vacia();
+bool pila_llena();
+void insertar_pila(int n);//push
+int  eliminar_pila();//pop
+};
+Cpp
+#include "pilas.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+pilas::pilas()
+{tope = -1;
+}
+pilas::~pilas()
+{
+}
+bool pilas::pila_vacia()
+{
+bool k = false;
+if (tope == -1) {
+k = true;
+}
+return k;
+}
+bool pilas::pila_llena()
+{
+bool k = false;
+if (tope == max - 1)
+{
+k = true;
+}
+return k;
+}
+void pilas::insertar_pila(int n)
+{if (pila_llena() == false)
+{
+tope++;
+PILA[tope] = n;
+}
+else {
+cout << "la pila esta llena " << endl;
+}
+}
+int pilas::eliminar_pila()
+{
+int dato;
+if (pila_vacia() == false)
+{
+dato = PILA[tope];
+tope--;
+}
+else {
+dato = 0;
+}
+return dato;
+}
+MAIN PRINCIPAL
+#include <iostream>
+#include "pilas.h"
+#include "conio.h"
+using namespace std;
+void main()
+{
+pilas a;
+int opcion;
+do {
+cout << "-----------MENU-----------" << endl;
+cout << "1-Insertar Pila" << endl;
+cout << "2-Eliminas Pila" << endl;
+cout << "3-Pila LLENA" << endl;
+cout << "4-Pila Vacia" << endl;
+cout << "5-salir" << endl;
+cin >> opcion;
+switch (opcion){
+case 1:   
+	int x;
+	cout << "ingrese un dato" << endl;
+	cin >> x;
+	a.insertar_pila(x);
+	break;
+case 2:
+	int p;
+	p = a.eliminar_pila();
+	if (p!=0) {
+	cout << p << endl;
+	}
+	else {
+	cout << "la pila esta vacia" << endl;
+	}
+	break;
+case 3:
+	if (a.pila_llena() == true) {
+	cout << "la pila esta llena" << endl;
+	}
+	else {
+	cout << "la pila no esta llena" << endl;
+	}
+	break;
+case 4:
+
+	if (a.pila_vacia() == true) {
+	cout << "la pila esta vacia" << endl;
+	}
+	else {
+	cout << "la pila no esta vacia" << endl;
+	}
+	break;
+	}
+	} while (opcion < 5);
+	_getch();
